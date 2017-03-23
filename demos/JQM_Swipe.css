@@ -1,0 +1,51 @@
+ .behind {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+	.rightbutton{
+		
+	}
+    .behind a.ui-btn {
+        
+        margin: 0px;
+        float: right;
+        border: none;
+    }
+    .behind a.delete-btn, .behind a.delete-btn:active, .behind a.delete-btn:visited, .behind a.delete-btn:focus, .behind a.delete-btn:hover {
+        color: white;
+        background-color: RED;
+        text-shadow: none;
+    }
+    .behind a.ui-btn.pull-left {
+        float: left;
+		width: 88%;
+    }
+    .behind a.edit-btn, .behind a.edit-btn:active, .behind a.edit-btn:visited, .behind a.edit-btn:focus, .behind a.edit-btn:hover {
+        color: white;
+        background-color: RED;
+        text-shadow: none;
+		
+    }
+	
+.REDCOLOR {
+        color: white;
+        background-color: RED;
+        text-shadow: none;
+		
+    }
+#myProgress {
+  width: 100%;
+  height: 30px;
+  position: relative;
+  background-color: #ddd;
+}
+
+#myBar {
+  background-color: RED;
+  width: 10px;
+  height: 30px;
+  position: absolute;
+}

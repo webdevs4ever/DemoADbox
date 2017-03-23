@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body ng-app="">
+
+Keep Checkbox : <input type="text" ng-model="myVar" ng-init="myVar = true">
+
+<div ng-if="myVar">
+<input type="checkbox"  >
+
+</div>
+
+<div ng-if="myVar===false">
+<img   src ="http://www.soulfoodyoga.com/wp-content/themes/sfy/img/prettyCheckable/sprites/E-checkbox-disabled.png">
+
+</div>
+
+
+
+remove Checkbox show image : <input type="text" ng-model="myVar1" ng-init="myVar1 = false">
+
+<div ng-if="myVar1">
+<input type="checkbox"  >
+
+</div>
+
+<div ng-if="myVar1===false">
+<img   src ="http://www.soulfoodyoga.com/wp-content/themes/sfy/img/prettyCheckable/sprites/E-checkbox-disabled.png">
+
+</div>
+</body>
+</html>

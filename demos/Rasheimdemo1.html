@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="../dist/css/swiper.min.css">
+	 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.css" />
+	<link rel="stylesheet" href="JQM_Swipe.css">
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script>
+    <!-- Demo styles -->
+    <style>
+  
+    </style>
+	<link rel="stylesheet" href="customswiper.css">
+	<link rel="stylesheet" href="customlightbox.css">
+
+	<style> /*Eliminates padding, centers the thumbnail */
+ </style>
+</head>
+<body>
+
+    <!-- Swiper -->
+	<script type="text/javascript">
+
+
+</script>
+
+
+<div class="lightbox-target" id="lightboxtarget">
+<Div class="boxload" id ="box4"  > Loading... </Div>
+    <div class="swiper-container">
+        <div class="swiper-wrapper" >
+            <div class="swiper-slide" style="background-image:url(1.jpg)">
+			
+			 <Div  class=" swipe-delete swiper-slide-img">
+			 
+                        <a class="lightbox-close" href="#" onclick="window.location.href = 'mainpage.html';"></a>
+						</div>
+						
+			
+			</div>
+            <div class="swiper-slide" style="background-image:url(2.jpg)">
+			
+			<ul data-role="listview" class="swipe-delete swiper-slide-img">
+                    <li> <div class="behind">
+                           
+                            <a href="#" class="ui-btn edit-btn pull-left">&nbsp;</a>
+                        </div>
+                         <a href="#" class="swiper-slide-img">Swipe Right</a> </li>
+						
+			</ul>
+			</div>
+            <div class="swiper-slide" style="background-image:url(3.jpg)">
+			<ul data-role="listview" class="swipe-delete swiper-slide-img">
+                    <li> <div class="behind">
+                           
+                            <a href="#" class="ui-btn edit-btn pull-left">&nbsp;</a>
+                        </div>
+                         <a href="#" class="swiper-slide-img">Swipe Right</a> </li>
+						
+			</ul>
+			</div>
+            <div class="swiper-slide" style="background-image:url(4.jpg)">
+			<ul data-role="listview" class="swipe-delete swiper-slide-img">
+                    <li> <div class="behind">
+                           
+                            <a href="#" class="ui-btn edit-btn pull-left">&nbsp;</a>
+                        </div>
+                         <a href="#" class="swiper-slide-img">Swipe Right</a> </li>
+						
+			</ul>
+			</div>
+            <div class="swiper-slide" style="background-image:url(5.jpg)">
+			<ul data-role="listview" class="swipe-delete swiper-slide-img">
+                    <li> <div class="behind">
+                           
+                            <a href="#" class="ui-btn edit-btn pull-left">&nbsp;</a>
+                        </div>
+                         <a href="#" class="swiper-slide-img">Swipe Right</a> </li>
+						
+			</ul>
+			</div>
+        </div>
+        
+        <div class="swiper-pagination"></div> 
+		</div>
+  
+
+
+
+  <!--  <a class="lightbox-close" href="#" onclick="window.location.href = 'mainpage.html';"></a> -->
+  
+</div>
+
+
+    <!-- Swiper JS -->
+    <script src="../dist/js/swiper.min.js"></script>
+    
+    <!-- Initialize Swiper -->
+    <script>
+	
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        effect: 'cube',
+        grabCursor: true,
+		loop:false,
+		initialSlide: 5,
+        cube: {
+            shadow: true,
+            slideShadows: true,
+            shadowOffset: 40,
+            shadowScale: 0.94
+        },
+		onTransitionEnd: function (swiper) {
+                    //console.log('slide change Start - after');
+                    //console.log(swiper);
+                    //console.log(swiper.activeIndex);
+					//after Event use it for your purpose
+                    if (swiper.activeIndex == 1) {
+                        //First Slide is active
+                       // console.log('First slide active')
+						//var url = "http://www.google.com/";
+						//window.location.href = url;
+						//window.location.replace (url);
+                    }
+                }
+				
+				
+    });
+	
+	swiper.on('slideChangeStart', function () {
+   //alert('slide change start' + swiper.activeIndex);
+   //alert('slide change start' + swiper.activeIndex);
+	// $( ".box"  ).animate({ "right": "-=1500px" }, "slow" );
+	// $( ".box" + swiper.activeIndex ).html(swiper.activeIndex );
+	// $( ".box" ).animate({ "right": "+=1500px" }, "slow" );
+	 
+});
+    </script>
+
+<script type="text/javascript">
+$(function() {
+    function prevent_default(e) {
+       // e.preventDefault();
+    }
+    function disable_scroll() {
+      //  $(document).on('touchmove', prevent_default);
+    }
+    function enable_scroll() {
+      //  $(document).unbind('touchmove', prevent_default)
+    }
+    var x;
+    $('.swipe-delete li > a')
+        .on('touchstart', function(e) {
+            console.log(e.originalEvent.pageX)
+            $('.swipe-delete li > a.open').css('left', '0px').removeClass('open') // close em all
+            $(e.currentTarget).addClass('open')
+            x = e.originalEvent.targetTouches[0].pageX // anchor point
+        })
+        .on('touchmove', function(e) {
+            var change = e.originalEvent.targetTouches[0].pageX - x
+            change = Math.min(Math.max(-100, change), 100) // restrict to -100px left, 0px right
+            e.currentTarget.style.left = change + 'px'
+            if (change < -10) disable_scroll() // disable scroll once we hit 10px horizontal slide
+        })
+        .on('touchend', function(e) {
+            var left = parseInt(e.currentTarget.style.left)
+            var new_left;
+            if (left < -35) {
+                new_left = '-100px'
+            } else if (left > 35) {
+                new_left = '100px'
+            } else {
+                new_left = '0px'
+            }
+            // e.currentTarget.style.left = new_left
+            $(e.currentTarget).animate({left: new_left}, 200)
+            enable_scroll()
+        });
+    
+    $('li .edit-btn').on('touchend', function(e) {
+        e.preventDefault()
+        $(this).parents('li').children('a').html('edited')
+    })
+});
+</script>
+</body>
+</html>
